@@ -11,13 +11,39 @@
 	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
+
 	<style>
+		/* Background color adjustment for .bg-dark */
 		.bg-dark {
 			background-color: lightblue !important;
-			/* Replaces dark background with light blue */
 		}
 
-		/*running text */
+		/* Logo image styling */
+		.logo-img {
+			max-width: 100%;
+			height: auto;
+			/* Maintain aspect ratio */
+			max-height: 30px;
+			/* Ensure logo height is consistent */
+		}
+
+		/* Navbar styling */
+		.navbar {
+			padding: 0.5rem 1rem;
+			min-height: 50px;
+			/* Consistent height */
+			display: flex;
+			align-items: center;
+			/* Center logo and links vertically */
+		}
+
+		/* Navbar link font size */
+		.navbar-nav .nav-link {
+			font-size: 14px;
+			/* Consistent font size */
+		}
+
+		/* Scrolling text */
 		.scrolling-text {
 			width: 100%;
 			overflow: hidden;
@@ -27,79 +53,83 @@
 
 		.scrolling-text p {
 			display: inline-block;
-			animation: scroll-back-and-forth 10s ease-in-out infinite;
-			/* Smooth back-and-forth motion */
+			animation: scroll-back-and-forth 10s linear infinite;
+			white-space: nowrap;
 		}
 
 		@keyframes scroll-back-and-forth {
 			0% {
-				transform: translateX(0);
-				/* Start at the left side */
-			}
-
-			50% {
-				transform: translateX(calc(100vw - 100%));
-				/* Move towards the right side but stay within viewport */
+				transform: translateX(100%);
 			}
 
 			100% {
-				transform: translateX(0);
-				/* Return back to the left side */
+				transform: translateX(-100%);
 			}
 		}
 
+		/* Responsive adjustments for scrolling text */
+		@media (max-width: 768px) {
+			.scrolling-text {
+				overflow: hidden;
+				/* Ensure overflow is hidden */
+			}
+
+			.scrolling-text p {
+				animation: scroll-back-and-forth 8s linear infinite;
+				/* Adjust timing for smaller screens */
+			}
+		}
+
+		/* Section styling */
 		.carousel-section,
 		.form-section,
 		.payment-section {
 			width: 40%;
-			/* 20% space on both sides */
 			margin: 0 auto;
-			/* Center the section horizontally */
 		}
 
 		.carousel-section {
 			height: 40vh;
-			/* Increase carousel height */
 			margin-bottom: 3px;
-			/* Keep the 3px space between the carousel and form */
 			padding: 0;
 		}
 
 		.carousel-item {
 			width: 100%;
 			height: 100%;
-			/* Ensure the item fills the carousel section */
 		}
 
 		.carousel-item img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			/* Ensure the image fills the section without distortion */
 		}
 
 		.form-section {
 			height: 50vh;
-			/* 50% of the page for the form */
 			margin-bottom: 10px;
 		}
 
 		.payment-section {
 			height: 20vh;
-			/* 20% of the page reserved for payment system */
 			text-align: center;
 			background-color: #f0f0f0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			margin-top: 16px;
+			/* Decreased top margin by 2px */
+			margin-bottom: 6px;
+			/* Decreased bottom margin by 2px */
 		}
 
 		.sticky-footer {
+						
 			position: absolute;
 			bottom: 0;
 			width: 100%;
 			height: 60px;
-			background-color: #f8f9fa;
+			background-color: lightblue !important;
 		}
 
 		body,
@@ -114,33 +144,49 @@
 			/* Footer height */
 		}
 
-		/* Adjust carousel height for smaller screens and maintain 3px margin */
+		/* Consistent styling for all screen sizes */
 		@media (max-width: 768px) {
+			.logo-img {
+				max-height: 30px;
+				/* Ensure logo height is consistent */
+			}
+
+			.navbar-nav .nav-link {
+				font-size: 14px;
+				/* Consistent font size */
+			}
 
 			.carousel-section,
 			.form-section,
 			.payment-section {
 				width: 90%;
-				/* Adjust width to 90% on smaller screens */
 			}
 
 			.carousel-section {
 				height: 30vh;
-				/* Reduce carousel height for smaller screens */
-				margin-bottom: 3px;
-				/* Keep the 3px space between carousel and form */
+			}
+		}
+
+		@media (max-width: 576px) {
+			.logo-img {
+				max-height: 30px;
+				/* Ensure logo height is consistent */
 			}
 		}
 	</style>
+
+
+
+
 </head>
 
 <body>
 	<div class="container-fluid d-flex flex-column min-vh-100">
 		<div>
-			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<!--logo-->
 				<a class="navbar-brand" th:href="@{/}">
-					<img th:src="@{/images/logo.png}" />
+					<img th:src="@{/images/gdamLogo.png}" class="img-fluid logo-img" alt="Logo" />
 				</a>
 
 				<!--sandwich button-->
@@ -152,16 +198,16 @@
 				<div class="collapse navbar-collapse" id="topNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/users}">Users</a>
+							<a class="nav-link text-dark" th:href="@{/}">Users</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/articles}">Articles</a>
+							<a class="nav-link text-dark" th:href="@{/}">Articles</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/menus}">Menus</a>
+							<a class="nav-link text-dark" th:href="@{/}">Menus</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/settings}">Settings</a>
+							<a class="nav-link text-dark" th:href="@{/}">Settings</a>
 						</li>
 					</ul>
 				</div>
@@ -209,33 +255,35 @@
 				<div class="form-group">
 					<label for="firstName">First Name</label>
 					<input type="text" class="form-control" id="firstName" name="firstName"
-						placeholder="Enter your first name">
+						placeholder="Enter your first name" required>
 				</div>
 				<div class="form-group">
 					<label for="lastName">Last Name</label>
 					<input type="text" class="form-control" id="lastName" name="lastName"
-						placeholder="Enter your last name">
+						placeholder="Enter your last name" required>
 				</div>
 				<!-- Added Email Field -->
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+						required>
 				</div>
 				<!-- Added Amount Donated Field -->
 				<div class="form-group">
 					<label for="amountDonated">Amount Donated</label>
 					<input type="number" step="0.01" class="form-control" id="amountDonated" name="amountDonated"
-						placeholder="Enter donation amount">
+						placeholder="Enter donation amount" min="0" required>
 				</div>
 				<!-- Hidden CSRF Token Field (if necessary) -->
 				<!-- <input type="hidden" name="_csrf" th:value="${_csrf.token}" /> -->
 				<!-- Submit Button -->
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary mb-2px">Submit</button>
 			</form>
 		</div>
 
+
 		<!-- Third Section: Placeholder for Payment System (20% of the page) -->
-		<div class="payment-section">
+		<div class="payment-section mt-10px">
 			<h3>Payment System Integration Coming Soon</h3>
 		</div>
 
@@ -246,11 +294,48 @@
 	</div>
 
 	<script type="text/javascript">
-
 		$(document).ready(function () {
 			$('#donorForm').on('submit', function (e) {
 				e.preventDefault(); // Prevent default form submission
 
+				// Perform client-side validation
+				let valid = true;
+				clearValidationMessages(); // Clear previous validation messages
+
+				// Get form elements
+				const firstName = document.getElementById('firstName');
+				const lastName = document.getElementById('lastName');
+				const email = document.getElementById('email');
+				const amountDonated = document.getElementById('amountDonated');
+
+				// First Name Validation
+				if (!firstName.value.trim()) {
+					showValidationMessage(firstName, 'First name is required.');
+					valid = false;
+				}
+
+				// Last Name Validation
+				if (!lastName.value.trim()) {
+					showValidationMessage(lastName, 'Last name is required.');
+					valid = false;
+				}
+
+				// Email Validation
+				if (!email.value.trim() || !email.checkValidity()) {
+					showValidationMessage(email, 'Please enter a valid email address.');
+					valid = false;
+				}
+
+				// Amount Donated Validation
+				if (amountDonated.value <= 0 || isNaN(amountDonated.value)) {
+					showValidationMessage(amountDonated, 'Amount donated must be a positive number.');
+					valid = false;
+				}
+
+				// If the form is invalid, stop the submission
+				if (!valid) return;
+
+				// If form is valid, proceed with submission
 				var url = "[[@{/add}]]";
 				/* var csrfValue = $("input[name='_csrf']").val(); */
 
@@ -278,9 +363,27 @@
 
 				return false;
 			});
+
+			// Function to display validation messages
+			function showValidationMessage(element, message) {
+				const formGroup = element.closest('.form-group');
+				let errorElement = formGroup.querySelector('.error-message');
+				if (!errorElement) {
+					errorElement = document.createElement('div');
+					errorElement.className = 'error-message text-danger';
+					formGroup.appendChild(errorElement);
+				}
+				errorElement.textContent = message;
+			}
+
+			// Function to clear validation messages
+			function clearValidationMessages() {
+				const messages = document.querySelectorAll('.error-message');
+				messages.forEach(message => message.remove());
+			}
 		});
 	</script>
-	</script>
+
 </body>
 
 </html>
