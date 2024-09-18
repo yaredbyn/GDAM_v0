@@ -32,6 +32,12 @@ public class MainController {
 	public String viewHomePage() {
 		return "Home";
 	}
+	
+	@RequestMapping(value = "/payment", method = RequestMethod.GET)
+    public String showPaymentPage() {
+        // This will return the payment.html page located in src/main/resources/templates
+        return "payment";
+    }
 
 
 
@@ -104,11 +110,7 @@ public class MainController {
 	    }
 	    
 	    
-	    @GetMapping("/payment")
-	    public String showPaymentPage() {
-	        // This will return the payment.html page located in src/main/resources/templates
-	        return "/payment";
-	    }
+
 
 	    @GetMapping("/view-file")
 	    public ResponseEntity<String> viewFile() {
