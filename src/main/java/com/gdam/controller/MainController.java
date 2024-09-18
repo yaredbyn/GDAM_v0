@@ -28,7 +28,7 @@ public class MainController {
     private static final int WIDTH_DATE = 20;
 
 
-	@GetMapping("/gdam")
+	@GetMapping("")
 	public String viewHomePage() {
 		return "Home";
 	}

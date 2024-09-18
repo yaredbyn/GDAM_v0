@@ -43,25 +43,25 @@
 	</style>
 
 	<!-- Script to handle back button navigation -->
-<!--	<script>
+	<script>
 		window.addEventListener('popstate', function (event) {
 			// Redirect to /gdam when the back button is pressed
 			window.location.href = "/gdam";
 		});
-	</script>   -->
+	</script>
 
 </head>
 
 
 
 <body>
-	
-	
-<!--	 <div class="container mt-5">
+
+
+	<div class="container mt-5">
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-8 col-sm-10">
 				<!-- Payment Form -->
-<!--				<div class="card">
+				<div class="card">
 					<div class="card-header bg-primary text-white text-center">
 						<h4>Choose Payment Method</h4>
 					</div>
@@ -70,35 +70,36 @@
 
 						<div class="payment-option">
 							<!-- PayPal -->
-<!--							<a href="https://www.paypal.com/checkout" target="_blank">
-								<img th:src="@{https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg}" alt="PayPal" width="100">
+							<!--	<a href="https://www.paypal.com/checkout" target="_blank"> -->
+							<a th:href="@{/}" target="_blank">
+								<img th:src="@{https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg}"
+									alt="PayPal" width="100">
 
 							</a>
 
 							<!-- Stripe -->
-<!--							<a href="https://www.stripe.com/pay" target="_blank">
+							<!--		<a href="https://www.stripe.com/pay" target="_blank"> -->
+							<a th:href="@{/}" target="_blank">
+
 								<img th:src="@{/images/stripe.svg}" alt="Stripe">
 							</a>
 
 							<!-- Google Pay -->
-<!--							<a href="https://pay.google.com/" target="_blank">
-								<a href="https://pay.google.com">
-									<img th:src="@{https://pay.google.com/about/static/images/logos/google-pay-logo.png}"
-										alt="Google Pay" width="150">
-								</a>
+							<!--	<a href="https://pay.google.com/" target="_blank">  -->
+							<a th:href="@{/}" target="_blank">
+
+								<img th:src="@{https://pay.google.com/about/static/images/logos/google-pay-logo.png}"
+									alt="Google Pay" width="150">
+							</a>
 
 							</a>
 						</div>
 
-						<div class="text-center">
-							<p>By proceeding with payment, you agree to our <a href="#">terms and conditions</a>.</p>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>   -->
-<p>working </p>
+	</div>
 </body>
 
 </html>
