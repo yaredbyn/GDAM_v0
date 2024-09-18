@@ -55,9 +55,24 @@
 
 
 <body>
+	
+	
+	<div class="container mt-2">
+    <!-- Display the thank-you message if available -->
+    <div th:if="${message != null}" class="alert alert-success" role="alert">
+        <span th:text="${message}"></span>
+    </div>
+
+    <!-- Payment form or information goes here -->
+  <!--   <h2>Complete Your Payment</h2>  -->
+ <!--    <p>Please follow the instructions to complete your payment.</p>  -->
+
+    <!-- Example payment button -->
+   <!--  <button class="btn btn-primary">Proceed to Payment</button> -->
+</div>
 
 
-	<div class="container mt-5">
+	<div class="container mt-3">
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-8 col-sm-10">
 				<!-- Payment Form -->

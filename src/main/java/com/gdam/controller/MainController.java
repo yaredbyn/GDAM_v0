@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,6 +27,8 @@ public class MainController {
     private static final int WIDTH_EMAIL = 20;
     private static final int WIDTH_AMOUNT = 15;
     private static final int WIDTH_DATE = 20;
+    private double amountDonated;
+    private String firstName;
 
 
 	@GetMapping("")
@@ -34,7 +37,8 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/payment", method = RequestMethod.GET)
-    public String showPaymentPage() {
+    public String showPaymentPage(Model model) {
+		model.addAttribute("message", "Thank you "+ firstName+" for donating $" +  amountDonated + "! Please use below payment methods" );
         // This will return the payment.html page located in src/main/resources/templates
         return "payment";
     }
@@ -43,7 +47,7 @@ public class MainController {
 
 	    @PostMapping("/add")
 	    @ResponseBody
-	    public String addDonor(Donor donor, RedirectAttributes redirectAttributes) {
+	    public String addDonor(Donor donor, RedirectAttributes redirectAttributes,Model model) {
 	        // Define the output headline
 	        String headline = "This is under development";
 
@@ -56,6 +60,7 @@ public class MainController {
 	            donor.getEmail(),
 	            donor.getAmountDonated(),
 	            timestamp
+	            
 	        );
 	        String output = String.format("%s%n%s%n%s%n", headline, getHeader(), formattedDetails);
 
@@ -78,8 +83,10 @@ public class MainController {
 	            System.err.println("Error writing to file: " + e.getMessage());
 	        }
 
+	        amountDonated = donor.getAmountDonated();
+	        firstName  =donor.getFirstName();
 	        // Add success message
-	        redirectAttributes.addFlashAttribute("message", "Donor details received successfully.");
+	        model.addAttribute("message", "Thank you for donating $" +  donor.getAmountDonated() + "!");
 
 	        // Redirect to Home page
 	        return "Successful";
