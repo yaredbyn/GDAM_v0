@@ -173,6 +173,9 @@
 				/* Ensure logo height is consistent */
 			}
 		}
+		
+		
+		
 	</style>
 
 
@@ -207,7 +210,7 @@
 							<a class="nav-link text-dark" th:href="@{/}">Menus</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/}">Settings</a>
+							<a class="nav-link text-dark" th:href="@{/}">about  Us </a>
 						</li>
 					</ul>
 				</div>
@@ -277,7 +280,7 @@
 				<!-- Hidden CSRF Token Field (if necessary) -->
 				<!-- <input type="hidden" name="_csrf" th:value="${_csrf.token}" /> -->
 				<!-- Submit Button -->
-				<button type="submit" class="btn btn-primary mb-2px">Submit</button>
+				<button type="submit" class="btn btn-primary mb-4px">Submit</button>
 			</form>
 		</div>
 
@@ -285,11 +288,11 @@
 		<!-- Third Section: Placeholder for Payment System (20% of the page) -->
 		<div class="payment-section mt-10px">
 			<h3>Payment System Integration Coming Soon</h3>
-		</div>
+		</div>   
 
 		<!-- Footer -->
 		<footer class="sticky-footer text-center py-3 bg-dark">
-			<p>Gdam - Copyright &copy; Gdam</p>
+			<p>&copy;2024, Gdam . All rights reserved.</p>
 		</footer>
 	</div>
 
@@ -349,9 +352,10 @@
 				$.post(url, formData, function (response) {
 					if (response == "Successful") {
 						// Form submission successful
-						alert('Successfully submitted.');
+						//alert('Successfully submitted.');
 						// Optionally, reset the form
 						form[0].reset();
+						window.location.href = "/gdam/payment";
 					} else {
 						// Handle different responses from the server
 						alert('Server response: ' + response);

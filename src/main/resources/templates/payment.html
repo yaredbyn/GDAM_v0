@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
+
+	<title>Gdam-title</title>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+	<style>
+		.payment-option {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.payment-option img {
+			max-width: 100px;
+			margin: 10px;
+			transition: transform 0.2s ease;
+		}
+
+		.payment-option img:hover {
+			transform: scale(1.1);
+		}
+
+		@media (max-width: 768px) {
+			.payment-option img {
+				max-width: 80px;
+				margin: 5px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.payment-option img {
+				max-width: 60px;
+				margin: 5px;
+			}
+		}
+	</style>
+
+	<!-- Script to handle back button navigation -->
+	<script>
+		window.addEventListener('popstate', function (event) {
+			// Redirect to /gdam when the back button is pressed
+			window.location.href = "/gdam";
+		});
+	</script>
+
+</head>
+
+<body>
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 col-md-8 col-sm-10">
+				<!-- Payment Form -->
+				<div class="card">
+					<div class="card-header bg-primary text-white text-center">
+						<h4>Choose Payment Method</h4>
+					</div>
+					<div class="card-body">
+						<p class="text-center">Please select your preferred payment method below:</p>
+
+						<div class="payment-option">
+							<!-- PayPal -->
+							<a href="https://www.paypal.com/checkout" target="_blank">
+								<img th:src="@{https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg}"
+									alt="PayPal" width="100">
+
+							</a>
+
+							<!-- Stripe -->
+							<a href="https://www.stripe.com/pay" target="_blank">
+								<img th:src="@{/images/stripe.svg}" alt="Stripe">
+							</a>
+
+							<!-- Google Pay -->
+							<a href="https://pay.google.com/" target="_blank">
+								<a href="https://pay.google.com">
+									<img th:src="@{https://pay.google.com/about/static/images/logos/google-pay-logo.png}"
+										alt="Google Pay" width="150">
+								</a>
+
+							</a>
+						</div>
+
+						<div class="text-center">
+							<p>By proceeding with payment, you agree to our <a href="#">terms and conditions</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -102,6 +102,13 @@ public class MainController {
 	            "Date"
 	        );
 	    }
+	    
+	    
+	    @GetMapping("/payment")
+	    public String showPaymentPage() {
+	        // This will return the payment.html page located in src/main/resources/templates
+	        return "/payment";
+	    }
 
 	    @GetMapping("/view-file")
 	    public ResponseEntity<String> viewFile() {
