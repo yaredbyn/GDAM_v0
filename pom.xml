@@ -10,9 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.shopme</groupId>
-	<artifactId>Fund_For_GEDAM_V1</artifactId>
+	<artifactId>
+		Fund_For_GEDAM_V1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Fund_For_GEDAM_V1</name>
+	<name>
+		Fund_For_GEDAM_V1</name>
 	<description>parent spring web project</description>
 	<url />
 	<licenses>
@@ -31,6 +33,13 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,11 +72,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
-	</dependencies>
+
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>1.14.0</version>
+		</dependency>
+
+<!--		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>  -->
+	</dependencies>  
+	
 
 	<build>
 		<plugins>
@@ -78,7 +101,5 @@
 		</plugins>
 	</build>
 
-	<!---->
-		<!---->
 
 </project>

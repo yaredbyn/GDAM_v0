@@ -5,12 +5,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.http.*;
+//import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gdam.models.Donor;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class MainController {
@@ -36,18 +39,32 @@ public class MainController {
 		return "Home";
 	}
 	
+
+	@RequestMapping(value = "/Contact-us", method = RequestMethod.GET)
+	public String contactUs() {
+		return "Contact-us";
+	}
+	
 	@RequestMapping(value = "/payment", method = RequestMethod.GET)
     public String showPaymentPage(Model model) {
 		model.addAttribute("message", "Thank you "+ firstName+" for donating $" +  amountDonated + "! Please use below payment methods" );
         // This will return the payment.html page located in src/main/resources/templates
         return "payment";
     }
-
-
-
-	    @PostMapping("/add")
-	    @ResponseBody
-	    public String addDonor(Donor donor, RedirectAttributes redirectAttributes,Model model) {
+	
+	@PostMapping("/add")
+	@ResponseBody
+	public String addDonor(Donor donor, RedirectAttributes redirectAttributes, Model model, HttpServletRequest request) {
+	    // Retrieve the CSRF token
+//	    CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+//
+//	    if (csrfToken != null) {
+//	        System.out.println("CSRF Token: " + csrfToken.getToken());
+//	    } else {
+//	        System.out.println("CSRF Token not found!");
+//	        return "CSRF Token not found!";
+//	    }
+	    	
 	        // Define the output headline
 	        String headline = "This is under development";
 
@@ -62,6 +79,7 @@ public class MainController {
 	            timestamp
 	            
 	        );
+
 	        String output = String.format("%s%n%s%n%s%n", headline, getHeader(), formattedDetails);
 
 	        // Determine the current file to use
@@ -142,4 +160,7 @@ public class MainController {
 	                .header(HttpHeaders.CONTENT_TYPE, "text/plain")
 	                .body(fileContent.toString());
 	    }
+	    
+
+
 	}

@@ -10,178 +10,179 @@
 	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
+<!--	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />  -->
+
+
 	<style>
-		/* Include the updated CSS here */
-		
 		/* Background color adjustment for .bg-dark */
-.bg-dark {
-    background-color: lightblue !important;
-}
+		.bg-dark {
+			background-color: lightblue !important;
+		}
 
-/* Logo image styling */
-.logo-img {
-    max-width: 100%;
-    height: auto;
-    max-height: 30px;
-}
+		/* Logo image styling */
+		.logo-img {
+			max-width: 100%;
+			height: auto;
+			max-height: 30px;
+		}
 
-/* Navbar styling */
-.navbar {
-    padding: 0.5rem 1rem;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-}
+		/* Navbar styling */
+		.navbar {
+			padding: 0.5rem 1rem;
+			min-height: 50px;
+			display: flex;
+			align-items: center;
+		}
 
-/* Navbar link font size */
-.navbar-nav .nav-link {
-    font-size: 14px;
-}
+		/* Navbar link font size */
+		.navbar-nav .nav-link {
+			font-size: 14px;
+		}
 
-/* Scrolling text */
-.scrolling-text {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-}
+		/* Scrolling text */
+		.scrolling-text {
+			width: 100%;
+			overflow: hidden;
+			white-space: nowrap;
+			box-sizing: border-box;
+		}
 
-.scrolling-text p {
-    display: inline-block;
-    animation: scroll-back-and-forth 10s linear infinite;
-    white-space: nowrap;
-}
+		.scrolling-text p {
+			display: inline-block;
+			animation: scroll-back-and-forth 10s linear infinite;
+			white-space: nowrap;
+		}
 
-@keyframes scroll-back-and-forth {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
+		@keyframes scroll-back-and-forth {
+			0% {
+				transform: translateX(100%);
+			}
 
-/* Responsive adjustments for scrolling text */
-@media (max-width: 768px) {
-    .scrolling-text {
-        overflow: hidden;
-    }
+			100% {
+				transform: translateX(-100%);
+			}
+		}
 
-    .scrolling-text p {
-        animation: scroll-back-and-forth 8s linear infinite;
-    }
-}
+		/* Responsive adjustments for scrolling text */
+		@media (max-width: 768px) {
+			.scrolling-text {
+				overflow: hidden;
+			}
 
-/* Section styling */
-.carousel-section,
-.form-section {
-    width: 90%;
-    margin: 0 auto;
-}
+			.scrolling-text p {
+				animation: scroll-back-and-forth 8s linear infinite;
+			}
+		}
 
-.carousel-section {
-    height: 40vh;
-    margin-bottom: 5px; /* Adjust gap between carousel and form section */
-    padding: 0;
-}
+		/* Section styling */
+		.carousel-section,
+		.form-section {
+			width: 90%;
+			margin: 0 auto;
+		}
 
-.carousel-item {
-    width: 100%;
-    height: 100%;
-}
+		.carousel-section {
+			margin-bottom: 5px;
+			/* Adjust gap between carousel and form section */
+			padding: 0;
+		}
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+		.carousel-item {
+			width: 100%;
+			height: 80%;
+		}
 
-.form-section {
-    margin-bottom: 5px; /* Adjust gap between form section and footer */
-}
+		.carousel-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 
-.payment-section {
-    height: 20vh;
-    text-align: center;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-    margin-bottom: 6px;
-}
+		.form-section {
+			margin-bottom: 5px;
+			/* Adjust gap between form section and footer */
+		}
 
-/* Sticky footer */
-.sticky-footer {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    background-color: lightblue !important;
-    text-align: center;
-}
+		/*       .payment-section {
+            height: 20vh;
+            text-align: center;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 16px;
+            margin-bottom: 6px;
+        } */
 
-/* Ensure the container uses flex layout to push footer to the bottom */
-.container-fluid {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+		/* Sticky footer */
+		.sticky-footer {
+			position: relative;
+			width: 100%;
+			height: 60px;
+			background-color: lightblue !important;
+			text-align: center;
+		}
 
-/* Adjustments for small screens */
-@media (max-width: 768px) {
-    .carousel-section {
-        height: 30vh;
-    }
-}
+		/* Ensure the container uses flex layout to push footer to the bottom */
+		.container-fluid {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
 
-@media (max-width: 576px) {
-    .logo-img {
-        max-height: 30px;
-    }
-}
+		/* Adjustments for small screens */
+		@media (max-width: 768px) {
+			.carousel-section {
+				height: 30vh;
+			}
+		}
 
+		@media (max-width: 576px) {
+			.logo-img {
+				max-height: 30px;
+			}
+		}
 	</style>
 </head>
 
 <body>
 	<div class="container-fluid d-flex flex-column">
-		<div>
-			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-				<!--logo-->
-				<a class="navbar-brand" th:href="@{/}">
-					<img th:src="@{/images/gdamLogo.png}" class="img-fluid logo-img" alt="Logo" />
-				</a>
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<!--logo-->
+			<a class="navbar-brand" th:href="@{/}">
+				<img th:src="@{/images/gdamLogo.png}" class="img-fluid logo-img" alt="Logo" />
+			</a>
 
-				<!--sandwich button-->
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+			<!--sandwich button-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-				<!-- nav bar-->
-				<div class="collapse navbar-collapse" id="topNavbar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/}">Users</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/}">Articles</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/}">Menus</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link text-dark" th:href="@{/}">about Us </a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+			<!-- nav bar-->
+			<div class="collapse navbar-collapse" id="topNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link text-dark" th:href="@{/}">Users</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" th:href="@{/}">Articles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" th:href="@{/}">Menus</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" th:href="@{/Contact-us}">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
 		<div class="scrolling-text">
 			<p>This fund is dedicated to the construction of a monastery.</p>
 		</div>
 
-		<!-- First Section: Bootstrap Carousel (40% of the page) -->
+		<!-- First Section: Bootstrap Carousel -->
 		<div class="carousel-section">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -211,10 +212,11 @@
 			</div>
 		</div>
 
-		<!-- Second Section: Form (50% of the page) -->
+		<!-- Second Section: Form -->
 		<div class="form-section">
 			<h2 class="text-center">Registration Form</h2>
-			<form id="donorForm">
+			<form id="donorForm" th:action="@{/add}" method="post">
+				
 				<div class="form-group">
 					<label for="firstName">First Name</label>
 					<input type="text" class="form-control" id="firstName" name="firstName"
@@ -225,20 +227,18 @@
 					<input type="text" class="form-control" id="lastName" name="lastName"
 						placeholder="Enter your last name" required>
 				</div>
-				<!-- Added Email Field -->
 				<div class="form-group">
 					<label for="email">Email</label>
 					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
 						required>
 				</div>
-				<!-- Added Amount Donated Field -->
 				<div class="form-group">
-					<label for="amountDonated">Amount Donated</label>
+					<label for="amountDonated">Amount Donated (USD)</label>
 					<input type="number" step="0.01" class="form-control" id="amountDonated" name="amountDonated"
 						placeholder="Enter donation amount" min="0" required>
 				</div>
-				<!-- Hidden CSRF Token Field (if necessary) -->
-				<!-- <input type="hidden" name="_csrf" th:value="${_csrf.token}" /> -->
+				<!-- Hidden CSRF Token Field -->
+
 				<!-- Submit Button -->
 				<button type="submit" class="btn btn-primary mb-4">Submit</button>
 			</form>
@@ -246,105 +246,101 @@
 
 		<!-- Footer -->
 		<footer class="sticky-footer text-center py-3 bg-dark">
-			<p>&copy;2024, Gdam . All rights reserved.</p>
+			<p>&copy;2024, Gdam. All rights reserved.</p>
 		</footer>
 	</div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Get CSRF token and header from meta tags
+        var csrfHeader = $("meta[name='_csrf_header']").attr("content");
+        var csrfToken = $("meta[name='_csrf']").attr("content");
+
+        $('#donorForm').on('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Perform client-side validation
+            let valid = true;
+            clearValidationMessages(); // Clear previous validation messages
+
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const amountDonated = document.getElementById('amountDonated');
+
+            if (!firstName.value.trim()) {
+                showValidationMessage(firstName, 'First name is required.');
+                valid = false;
+            }
+
+            if (!lastName.value.trim()) {
+                showValidationMessage(lastName, 'Last name is required.');
+                valid = false;
+            }
+
+            if (!email.value.trim() || !email.checkValidity()) {
+                showValidationMessage(email, 'Please enter a valid email address.');
+                valid = false;
+            }
+
+            if (amountDonated.value <= 0 || isNaN(amountDonated.value)) {
+                showValidationMessage(amountDonated, 'Amount donated must be a positive number.');
+                valid = false;
+            }
+
+            // If the form is invalid, stop the submission
+            if (!valid) return;
+
+            var form = $(this);
+            var formData = form.serialize();
+
+            // AJAX request with CSRF token and header
+            $.ajax({
+                url: form.attr('action'), // Ensure your form has the correct action attribute
+                type: 'POST',
+                data: formData, // The form data being sent
+ //               headers: {
+ //                   [csrfHeader]: csrfToken // Correctly apply the CSRF header and token
+  //              }, 
+                success: function (response) {
+         //           console.log('Success:', csrfToken + response);
+           //         console.log(url)
+                    if (response === "Successful") {
+                        form[0].reset(); // Reset the form if successful
+                        window.location.href = "/gdam/payment"; // Redirect after submitting
+                    } else {
+                        alert('Server response: ' + response); // Show server response for errors or custom messages
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Display detailed error information from the server
+                    console.error('Error status:', status);
+                    console.error('Error details:', error);
+                    console.error('Server response:', xhr.responseText);
+                    alert('An error occurred: ' + xhr.responseText);
+                }
+            });
+        });
+
+        function showValidationMessage(element, message) {
+            const formGroup = element.closest('.form-group');
+            let errorElement = formGroup.querySelector('.error-message');
+            if (!errorElement) {
+                errorElement = document.createElement('div');
+                errorElement.className = 'error-message text-danger';
+                formGroup.appendChild(errorElement);
+            }
+            errorElement.textContent = message;
+        }
+
+        function clearValidationMessages() {
+            const messages = document.querySelectorAll('.error-message');
+            messages.forEach(message => message.remove());
+        }
+    });
+</script>
 
 
-
-
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('#donorForm').on('submit', function (e) {
-				e.preventDefault(); // Prevent default form submission
-
-				// Perform client-side validation
-				let valid = true;
-				clearValidationMessages(); // Clear previous validation messages
-
-				// Get form elements
-				const firstName = document.getElementById('firstName');
-				const lastName = document.getElementById('lastName');
-				const email = document.getElementById('email');
-				const amountDonated = document.getElementById('amountDonated');
-
-				// First Name Validation
-				if (!firstName.value.trim()) {
-					showValidationMessage(firstName, 'First name is required.');
-					valid = false;
-				}
-
-				// Last Name Validation
-				if (!lastName.value.trim()) {
-					showValidationMessage(lastName, 'Last name is required.');
-					valid = false;
-				}
-
-				// Email Validation
-				if (!email.value.trim() || !email.checkValidity()) {
-					showValidationMessage(email, 'Please enter a valid email address.');
-					valid = false;
-				}
-
-				// Amount Donated Validation
-				if (amountDonated.value <= 0 || isNaN(amountDonated.value)) {
-					showValidationMessage(amountDonated, 'Amount donated must be a positive number.');
-					valid = false;
-				}
-
-				// If the form is invalid, stop the submission
-				if (!valid) return;
-
-				// If form is valid, proceed with submission
-				var url = "[[@{/add}]]";
-				/* var csrfValue = $("input[name='_csrf']").val(); */
-
-				// Collect form data
-				var form = $(this);
-				var formData = form.serialize();
-
-				// Include CSRF token if necessary
-				// formData += '&_csrf=' + encodeURIComponent(csrfValue);
-
-				$.post(url, formData, function (response) {
-					if (response == "Successful") {
-						// Form submission successful
-						//alert('Successfully submitted.');
-						// Optionally, reset the form
-						form[0].reset();
-						window.location.href = "/gdam/payment";
-					} else {
-						// Handle different responses from the server
-						alert('Server response: ' + response);
-					}
-				}).fail(function (xhr, status, error) {
-					// Handle error response
-					alert('An error occurred: ' + error);
-				});
-
-				return false;
-			});
-
-			// Function to display validation messages
-			function showValidationMessage(element, message) {
-				const formGroup = element.closest('.form-group');
-				let errorElement = formGroup.querySelector('.error-message');
-				if (!errorElement) {
-					errorElement = document.createElement('div');
-					errorElement.className = 'error-message text-danger';
-					formGroup.appendChild(errorElement);
-				}
-				errorElement.textContent = message;
-			}
-
-			// Function to clear validation messages
-			function clearValidationMessages() {
-				const messages = document.querySelectorAll('.error-message');
-				messages.forEach(message => message.remove());
-			}
-		});
-	</script>
 
 </body>
 

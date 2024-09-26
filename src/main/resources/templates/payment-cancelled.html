@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gdam - Payment Canceled</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <!-- jQuery and Bootstrap JS -->
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+        }
+        .sticky-footer {
+            background-color: lightblue !important;
+            text-align: center;
+            width: 100%;
+            height: 60px;
+            line-height: 60px; /* Centers text vertically */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center mt-5">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h2 class="text-danger">Payment Canceled</h2>
+                <p>Your payment was canceled. If this was a mistake, you can try again below.</p>
+
+                <form th:action="@{/paypal/pay}" method="GET" class="mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Try Again with PayPal
+                    </button>
+                </form>
+
+                <div class="mt-3">
+                    <a th:href="@{/}" class="btn btn-link">Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="sticky-footer bg-dark text-light">
+        <p>&copy; 2024 Gdam. All rights reserved.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+  <!--   <script th:src="@{/js/main.js}"></script>  -->
+</body>
+
+</html>

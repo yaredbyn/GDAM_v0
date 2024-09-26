@@ -10,6 +10,10 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	
+	<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+
 
 	<style>
 		.payment-option {
@@ -95,7 +99,7 @@
 						<div class="payment-option">
 							<!-- PayPal -->
 							<!--	<a href="https://www.paypal.com/checkout" target="_blank"> -->
-							<a th:href="@{/}" target="_blank">
+							<a th:href="@{/paypal/pay}" target="_blank">
 								<img th:src="@{https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg}"
 									alt="PayPal" width="100">
 
